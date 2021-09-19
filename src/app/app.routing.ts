@@ -19,6 +19,7 @@ import { SearchComponent } from './components/search/search.component';
 const appRoutes: Routes = [
     { path: '', component: HomeComponent }, // Cuando use esta url cargara el componente seleccionado
     { path: 'home', component: HomeComponent },
+    { path: 'SPA-AngularProject', component: HomeComponent },
     { path: 'blog', component: BlogComponent },
     { path: 'blog/article-create', component: CreateArticleComponent },
     { path: 'blog/article-edit/:id', component: EditArticleComponent },
