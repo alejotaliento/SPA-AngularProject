@@ -1,0 +1,36 @@
+<div class="center">
+    <section id="content">
+
+        <h1 class="sub-header">Article name</h1>
+
+
+        <article class="article-item article-detail" *ngIf="article">
+            <div class="image-wrap">
+                <img src="{{url + 'get-image/' + article.image}}" alt="{{article.title}}" *ngIf="article.image" />
+                <img src="../../../assets/img/image.png" alt="{{article.title}}" *ngIf="!article.image" />
+            </div>
+
+            <h1 class="sub-header-articleEdit">{{article.title}}</h1>
+            <h4>{{article.content}}</h4>
+            <span class="date">
+                Last update: 
+                {{ article.date | amLocale: 'es' | amTimeAgo}}
+            </span>
+            <span class="article-date">
+                {{ article.date | amCalendar}}
+            </span>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure, at! Explicabo sit fugit cum odit, quia
+                eos, quasi commodi voluptatem fuga voluptas placeat praesentium et at magnam molestias beatae ullam.</p>
+
+            <div class="buttons">
+            <a [routerLink]="['/blog/article-edit', article._id]" class="btn btn-warning">Edit</a>
+            <a (click)="deleteArticle(article._id)" class="btn btn-danger">Delete</a>
+            </div>
+
+            <!-- LIMIPIAR FLOTADOS -->
+            <div class="clearfix"></div>
+        </article>
+    </section>
+
+    <app-sidebar></app-sidebar>
+</div>

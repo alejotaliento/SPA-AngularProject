@@ -1,0 +1,42 @@
+<div class="center">
+    <section id="content">
+        <h1 class="sub-header">Create Article</h1>
+
+        <!-- #NombreVariable -->
+        <form class="mid-form" #createArticleForm="ngForm" (ngSubmit)="onSubmit()">
+            <div class="form-group">
+                <label for="name">Article title</label>
+                <input type="text" name="title" #title="ngModel" [(ngModel)]="article.title" required>
+
+                <small *ngIf="!title.valid && title.touched">
+                    The title is not valid
+                </small>
+            </div>
+
+            <div class="form-group">
+                <label for="content">Article content</label>
+                <textarea type="text" name="content" #content="ngModel" [(ngModel)]="article.content"
+                    required></textarea>
+                <small *ngIf="!content.valid && content.touched">
+                    The content is not valid
+                </small>
+            </div>
+
+            <div class="form-group" class="article-set-image">
+                <label for="image">Article image:</label>
+                <angular-file-uploader 
+                    [config]='afuConfig'
+                    (ApiResponse)="imageUpload($event)"
+                ></angular-file-uploader>
+            </div>
+
+            <div class="clearfix"></div>
+
+            <input type="submit" class="btn-success" value="Save" [disabled]="createArticleForm.invalid">
+        </form>
+    </section>
+
+
+
+    <app-sidebar></app-sidebar>
+</div>

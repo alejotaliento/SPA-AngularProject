@@ -1,0 +1,85 @@
+<app-slider [name]="'Forms'" [size]="'small'"></app-slider>
+
+<div class="center">
+    <section id="content">
+        <h1 class="sub-header">Form</h1>
+
+        <!-- <div id="data-fly" *ngIf="user.name && user.lastname && user.email && user.genero">
+            <h4>Data on fly</h4>
+                <ul>
+                    <li>
+                        {{user.name}}
+                    </li>
+                    <li>
+                        {{user.lastname}}
+                    </li>
+                    <li>
+                        {{user.email}}
+                    </li>
+                    <li>
+                        {{user.genero}}
+                    </li>
+                </ul>
+        </div> -->
+
+        <form class="mid-form" #userForm="ngForm" (ngSubmit)="onSubmit()">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" name="name" #name="ngModel" [(ngModel)]="user.name" required pattern="[a-zA-Z]+">
+
+                <small *ngIf="!name.valid && name.touched">
+                    The name is not valid
+                </small>
+            </div>
+
+            <div class="form-group">
+                <label for="lastname">Lastname</label>
+                <input type="text" name="lastname" #lastname="ngModel" [(ngModel)]="user.lastname" required
+                    pattern="[a-zA-Z]+">
+
+                <small *ngIf="!lastname.valid && lastname.touched">
+                    The lastname is not valid
+                </small>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="text" name="email" #email="ngModel" [(ngModel)]="user.email" required
+                    pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
+
+                <small *ngIf="!email.valid && email.touched">
+                    The email is not valid
+                </small>
+            </div>
+
+            <div class="form-group radio-buttons">
+                <input type="radio" name="genero" value="Hombre" #genero="ngModel" [(ngModel)]="user.genero" required />
+                Men
+                <input type="radio" name="genero" value="Mujer" #genero="ngModel" [(ngModel)]="user.genero" /> 
+                Woman
+                <input type="radio" name="genero" value="Otro" #genero="ngModel" [(ngModel)]="user.genero" /> 
+                Other
+            </div>
+
+            <div class="clearfix"></div>
+
+            <input type="submit" class="btn-success" value="Send" [disabled]="userForm.invalid">
+        </form>
+
+<!--    <h2 class="sub-header">Eventos</h2>
+        <label for="">Event (click)</label>
+        <br>
+        <button class="btn-success" (click)="youAreHaveClicked()">Click me</button> <!-- Evento (click)-->
+<!--    <hr>
+        <label for="">Event (keyup) [Press shift]</label>
+        <input type="text" [(ngModel)]="campo" (keyup.shift)="youPressShift()"> <!-- Evento (keyup.keyboardLetter)-->
+<!--    <br>
+        <label for="">Event (blur)</label>
+        <input type="text" [(ngModel)]="campo" (blur)="youExit()"> <!-- Evento (blur)-->
+<!--        {{campo}} -->
+    </section>
+
+
+
+    <app-sidebar></app-sidebar>
+</div>

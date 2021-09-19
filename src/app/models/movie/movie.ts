@@ -1,0 +1,20 @@
+export class Movie{
+    
+    /* 
+    public title: string;
+    public year: number;
+    image: string;
+
+    constructor(title, year, image){
+        this.title = title;
+        this.year = year;
+        this.image = image;
+    } 
+    */
+
+    constructor(
+        public title: string,
+        public year: any,
+        public image: string
+    ){}
+}

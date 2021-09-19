@@ -1,0 +1,25 @@
+<app-slider [name]="'Test page'"></app-slider>
+
+<div class="center">
+    <section id="content">
+
+        <h1 class="sub-header">Test page</h1>
+
+        <!-- IF -->
+        <div *ngIf="name && lastname; then yesThereParams else notThereParams"></div>
+
+        <ng-template #yesThereParams>
+            <p>The full name is {{name}} {{lastname}} </p>
+        </ng-template>
+
+        <!-- ELSE -->
+        <ng-template #notThereParams>
+            <p>There's no data to show</p>
+        </ng-template>
+
+        <button (click)="redirect()">Go to form</button>
+
+    </section>
+
+    <app-sidebar></app-sidebar>
+</div>

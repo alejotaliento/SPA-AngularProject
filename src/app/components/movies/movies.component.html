@@ -1,0 +1,61 @@
+<app-slider [name]="'Movies'" [size]="'small'"></app-slider>
+
+<div class="center">
+    <section id="content">
+
+        <!--
+         <h1 class="sub-header">Movies</h1>
+        <h2>{{tittle}}</h2>
+        <button (click)="changeTittle()">Push me</button>
+        <hr>
+
+        <h3>Show first movie</h3>
+        {{movies[0].title}}
+        <hr>
+
+        <h3>Numbers movies</h3>
+
+        <!-- Condicionales *ngIF -->
+
+        <!--
+        <div *ngIf="movies.length <= 3">
+            There's few movies.
+        </div>
+
+        <div *ngIf="movies.length > 3">
+            There's a lot movies.
+        </div>
+        {{movies.length}}
+        <hr> 
+        -->
+
+        <!-- OUTPUT -->
+        <div id="movie-favorite" *ngIf="favorite">
+            <h2 class="sub-header">
+                Fav movie
+            </h2>
+            <h4>
+                <!-- Pipe -->
+                Name: {{favorite.title | uppercase}}
+            </h4>
+            <h4>
+                <!-- Pipes -->
+                Year: {{favorite.year | date:'dd/MM/yyyy' | lowercase}}
+            </h4>
+            <h4>
+                {{ favorite.year.getFullYear() | espar }}
+            </h4>
+
+        </div>
+
+        <h2 class="sub-header">List of movies</h2>
+        <div id="articles" *ngIf="movies">
+            <!-- Loop *ngFor -->
+            <div *ngFor="let movie of movies; let i = index;">
+                <app-movie [movie]="movie" (markFavorite)="showFavMovie($event)"></app-movie>
+            </div>
+        </div>
+    </section>
+
+    <app-sidebar></app-sidebar>
+</div>

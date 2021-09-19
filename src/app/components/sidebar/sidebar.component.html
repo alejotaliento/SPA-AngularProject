@@ -1,0 +1,21 @@
+<!-- aside etiqueta para los sidebar (barra lateral) -->
+<aside id="sidebar">
+    <!-- ITEM 1 -->
+    <div id="nav-blog" class="sidebar-item">
+        <h3>Puedes hacer esto</h3>
+        <a [routerLink]="['/blog/article-create']" class="btn btn-success">Crear articulo</a>
+    </div>
+
+    <!-- ITEM 2 -->
+    <div id="search" class="sidebar-item">
+        <h3>Buscador</h3>
+        <p>Encuentra el articulo que buscas</p>
+        <form #searchForm="ngForm" (ngSubmit)="goSearch()">
+            <input type="text" name="search" [(ngModel)]="searchString" />
+            <input type="submit" name="submit" class="btn" value="Buscar" />
+        </form>
+    </div>
+</aside>
+
+<!-- LIMIPIAR FLOTADOS -->
+<div class="clearfix"></div>
